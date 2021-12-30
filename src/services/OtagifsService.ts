@@ -19,7 +19,7 @@ export default class OtagifsService {
 
     public async getLatestCleanPost(): Promise<IPost|null> {
         const {entries} = await this.getRecentPosts()
-        const clean = entries.filter(it => !it.nsfw && !it.private)
+        const clean = entries.filter((it: IPost) => !it.nsfw && !it.private)
         if (clean.length) {
             return clean[0]
         }
