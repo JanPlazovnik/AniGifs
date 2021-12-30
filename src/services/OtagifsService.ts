@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IPost, IResponse } from '../types/Otagifs';
+import { IPost, IResponse } from '../types/otagifs';
 
 export default class OtagifsService {
     private readonly BASE_URL = "https://otagifs.com/api/"
