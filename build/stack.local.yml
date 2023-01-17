@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+    app:
+        image: anigifs
+        build:
+            context: ../
+            dockerfile: build/Dockerfile
+        working_dir: /app
+        volumes:
+            - ../.env:/app/.env
+
+secrets:
+    env:
+        external: true
+        name: anigifs_env

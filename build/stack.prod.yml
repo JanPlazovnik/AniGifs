@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+    app:
+        image: anigifs:latest
+        working_dir: /app
+        secrets:
+            - source: env
+              target: /app/.env
+
+secrets:
+    env:
+        external: true
+        name: anigifs_env
