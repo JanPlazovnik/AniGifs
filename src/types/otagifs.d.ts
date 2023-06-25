@@ -22,7 +22,7 @@ export interface ITag {
   name: string;
 }
 
-export interface IPost {
+export interface IOtaGifsPost {
   files: IFile[];
   id: string;
   inserted_at: string;
@@ -35,8 +35,8 @@ export interface IPost {
   user: IUser;
 }
 
-export interface IResponse {
-  entries: IPost[];
+export interface IOtaGifsResponse {
+  entries: IOtaGifsPost[];
   pagination: {
     after?: string;
     before?: string;
