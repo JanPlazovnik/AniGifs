@@ -19,15 +19,22 @@ export default class OtagifsService {
 
   public async getLatestCleanPost(): Promise<IOtaGifsPost | null> {
     const { entries } = await this.getRecentPosts();
-    const clean = entries.filter(
-      (it: IOtaGifsPost) =>
-        !it.nsfw &&
-        !it.private &&
-        !it.title.toLowerCase().includes("finger spin")
-    );
-    if (clean.length) {
-      return clean[0];
+
+    const post = entries
+      .filter(
+        (it: IOtaGifsPost) =>
+          !it.nsfw &&
+          !it.private &&
+          !it.title.toLowerCase().includes("finger spin")
+      )
+      .shift();
+
+    if (post) {
+      post.id = `otagifs_${post.id}`;
+      post.url = this.getGifFromPost(post.id.split("_")[1]);
+      return post;
     }
+
     return null;
   }
 

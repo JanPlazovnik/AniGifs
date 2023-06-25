@@ -33,6 +33,7 @@ export interface IOtaGifsPost {
   tags: ITag[];
   title: string;
   user: IUser;
+  url: string;
 }
 
 export interface IOtaGifsResponse {

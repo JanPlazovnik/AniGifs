@@ -8,5 +8,6 @@ export interface ICatResponse {
   mimetype: string;
   size: number;
   _id: string;
+  id: string;
   url: string;
 }
