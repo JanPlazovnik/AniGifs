@@ -9,7 +9,13 @@ export default class WebhookService {
     }
   }
 
-  public async sendWebhookMessage(url: string): Promise<void> {
+  public async sendWebhookMessage({
+    url,
+    description,
+  }: {
+    url?: string;
+    description?: string;
+  }): Promise<void> {
     if (this.webhookURL == null) {
       console.log("Skipping Discord webhook action.");
       return;
@@ -21,7 +27,8 @@ export default class WebhookService {
           title: "Posted a new activity!",
           url: "https://anilist.co/user/relevantcroissant/",
           color: 7470976,
-          image: { url },
+          image: url ? { url } : undefined,
+          description,
         },
       ],
     });
