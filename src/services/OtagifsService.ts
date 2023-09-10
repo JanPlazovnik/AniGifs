@@ -30,8 +30,8 @@ export default class OtagifsService {
       .shift();
 
     if (post) {
+      post.url = this.getGifFromPost(post.id);
       post.id = `otagifs_${post.id}`;
-      post.url = this.getGifFromPost(post.id.split("_")[1]);
       return post;
     }
 
